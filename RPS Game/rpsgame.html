@@ -30,50 +30,44 @@ function computerPlay() {
 
 const playerSelection = "rock".toLowerCase();
 const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-
-
 
 function playRound(playerSelection, computerSelection) {
      if ((playerSelection === "rock") && (computerSelection === "scissors")) {
        message = "Rock beats scissors, you win!";
        playerScore++;
        roundNumber++;
+       console.log(message);
+       console.log(("The player's score is ") + (playerScore));
+       console.log(("The computer's score is ") + (compScore));
      }
      else if ((playerSelection === "rock") && (computerSelection === "paper")) {
        message = "Paper beats rock, you lose!";
        compScore++;
        roundNumber++;
+       console.log(message);
+       console.log(("The player's score is ") + (playerScore));
+       console.log(("The computer's score is ") + (compScore));
      }
      else if ((playerSelection === "rock" && computerSelection === "rock")) {
        message = "Rock versus rock, it's a tie!";
        roundNumber++;
+       console.log(message);
+       console.log(("The player's score is ") + (playerScore));
+       console.log(("The computer's score is ") + (compScore));
      }
 
      else {
        // doNothing; //
      }
-     return compScore;
-     return playerScore;
-    
    }
    
 var compScore = 0;
 var playerScore = 0;
 var roundNumber = 1;
 
-
-   while (roundNumber < 5) {
-    playRound(playerSelection, computerPlay);
-    console.log(message);
-    roundNumber++;
+for (let i = 0; i < 5; i++) {
+    playRound(playerSelection, computerSelection);
    }
-
-
-  
-
-
-
 
 </script>
 </body>

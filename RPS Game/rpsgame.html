@@ -14,7 +14,78 @@
 
 <script>
    
-function computerPlay() {
+
+
+function playRound(playerSelection, computerSelection) {
+     if ((playerSelection === "rock") && (computerSelection === "scissors")) {
+       message = "Rock beats scissors, you win!\n\n";
+       playerScore++;
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+     else if ((playerSelection === "rock") && (computerSelection === "paper")) {
+       message = "Paper beats rock, you lose!\n\n";
+       compScore++;
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+     else if ((playerSelection === "rock" && computerSelection === "rock")) {
+       message = "Rock versus rock, it's a tie!\n\n";
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+     else if ((playerSelection === "scissors" && computerSelection === "scissors")) {
+       message = "Scissors versus scissors, it's a tie!\n\n";
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+     else if ((playerSelection === "scissors" && computerSelection === "paper")) {
+       message = "Scissors versus paper, you win!\n\n";
+       playerScore++;
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+     else if ((playerSelection === "scissors" && computerSelection === "rock")) {
+       message = "Scissors versus rock, you lose!\n\n";
+       compScore++;
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+     else if ((playerSelection === "paper" && computerSelection === "scissors")) {
+       message = "Paper versus scissors, you lose!\n\n";
+       compScore++;
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+     else if ((playerSelection === "paper" && computerSelection === "paper")) {
+       message = "Paper versus paper, it's a tie!\n\n";
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+     else if ((playerSelection === "paper" && computerSelection === "rock")) {
+       message = "Paper versus rock, you win!\n\n";
+       playerScore++;
+       roundNumber++;
+       alert((message) + ("After round ") + (roundNumber) + " of 5" + (",") + (" ") + ("the player's score is ") + (playerScore) + " " + ("and the computer's score is") + (" ") + (compScore) + ("."));
+     }
+
+     else {
+       alert("Error. Please select rock, paper, or scissors.")
+     }
+   }
+
+ 
+   
+var compScore = 0;
+var playerScore = 0;
+var roundNumber = 0;
+
+function game(){
+  for (let i = 0; i < 5; i++) {
+  const playerSelection = prompt("Choose rock, paper, or scissors!").toLowerCase();
+var computerSelection = computerPlay();
+
+  function computerPlay() {
   const rndInt = Math.floor(Math.random() * 3) + 1;
   if (rndInt === 1) {
     computerPlay = "rock";
@@ -27,48 +98,22 @@ function computerPlay() {
   }
   return computerPlay;
 }
+playRound(playerSelection, computerSelection);
+  }
+  if (playerScore > compScore) {
+    alert(("You win, congratulations! The final score was ") + (playerScore) + ("-") + (compScore))
+  }  
+  else if (compScore > playerScore) {
+    alert(("You lose, better luck next time! The final score was ") + (playerScore) + ("-") + (compScore))
+  }
 
-const playerSelection = "rock".toLowerCase();
-const computerSelection = computerPlay();
+  else {
+    alert(("It's a tie! The final score was ") + (playerScore) + ("-") + (compScore))
+  }
+  
+}
 
-function playRound(playerSelection, computerSelection) {
-     if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-       message = "Rock beats scissors, you win!";
-       playerScore++;
-       roundNumber++;
-       console.log(message);
-       console.log(("The player's score is ") + (playerScore));
-       console.log(("The computer's score is ") + (compScore));
-     }
-     else if ((playerSelection === "rock") && (computerSelection === "paper")) {
-       message = "Paper beats rock, you lose!";
-       compScore++;
-       roundNumber++;
-       console.log(message);
-       console.log(("The player's score is ") + (playerScore));
-       console.log(("The computer's score is ") + (compScore));
-     }
-     else if ((playerSelection === "rock" && computerSelection === "rock")) {
-       message = "Rock versus rock, it's a tie!";
-       roundNumber++;
-       console.log(message);
-       console.log(("The player's score is ") + (playerScore));
-       console.log(("The computer's score is ") + (compScore));
-     }
-
-     else {
-       // doNothing; //
-     }
-   }
-   
-var compScore = 0;
-var playerScore = 0;
-var roundNumber = 1;
-
-for (let i = 0; i < 5; i++) {
-    playRound(playerSelection, computerSelection);
-   }
-
+game()
 </script>
 </body>
 </html>
